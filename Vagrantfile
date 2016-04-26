@@ -50,4 +50,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # install some base packages
   config.vm.provision :shell, path: "provision.sh"
+
+  # Allow symlinks (not sure if this works the way i want it to) (security issue)
+  #config.vm.provider "virtualbox" do |v|
+  #v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  #end
 end
